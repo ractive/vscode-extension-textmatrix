@@ -2,7 +2,7 @@
 
 This simple extension treats the text of the active text editor document as a matrix (where elements are separated by whitespace) and offers some simple matrix operations.
 
-![textedit extension in action](https://i.imgur.com/lGcr2Sm.gif)
+![textedit extension in action](textmatrix-vscode-extension.gif)
 
 To apply an operation, open the command palette in vscode (`F1` or `ctrl-shift-p`) and search for one of the following commands.
 
