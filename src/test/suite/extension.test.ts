@@ -198,6 +198,7 @@ suite('Extension Test Suite', () => {
 			await vscode.commands.executeCommand("workbench.action.files.newUntitledFile");
 		}
 		const result = await vscode.window.activeTextEditor?.edit(editBuilder => {
+			editBuilder.setEndOfLine(vscode.EndOfLine.LF);
 			editBuilder.insert(new vscode.Position(0, 0), " 1 2  3\n4 5  6 ");
 		})
 		.then(
