@@ -2,6 +2,8 @@
 
 This simple extension treats the text of the active text editor document as a matrix (where elements are separated by whitespace) and offers some simple matrix operations.
 
+https://marketplace.visualstudio.com/items?itemName=ractive.textmatrix
+
 ![textedit extension in action](textmatrix-vscode-extension.gif)
 
 To apply an operation, open the command palette in vscode (`F1` or `ctrl-shift-p`) and search for one of the commands described below.
