@@ -4,7 +4,7 @@ This simple extension treats the text of the active text editor document as a ma
 
 ![textedit extension in action](textmatrix-vscode-extension.gif)
 
-To apply an operation, open the command palette in vscode (`F1` or `ctrl-shift-p`) and search for one of the following commands.
+To apply an operation, open the command palette in vscode (`F1` or `ctrl-shift-p`) and search for one of the commands described below.
 
 Be aware that the text in the currently active editor window (representing a matrix), is replaced with the result of the matrix operation.
 
@@ -100,4 +100,4 @@ becomes:
 ```
 
 ## Usage
-This extension can be used to manipulate images in https://arcade.makecode.com. Copy/paste an image to a vscode window and flip it or rotate it easily.
+This extension can be used to manipulate images in https://arcade.makecode.com. Copy/paste an image as text (from the javascript source) to a vscode window and flip it or rotate it easily with on of the matrix operations.
