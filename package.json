@@ -2,7 +2,12 @@
 	"name": "textmatrix",
 	"displayName": "TextMatrix",
 	"description": "Manipulate matrices that are represented as text",
+	"publisher": "ractive",
 	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ractive/vscode-extension-textmatrix"
+	},
 	"engines": {
 		"vscode": "^1.45.0"
 	},
