@@ -2,69 +2,65 @@ import * as vscode from 'vscode';
 
 type TextMatrix = string[][];
 
+export function transpose(textMatrix: TextMatrix): TextMatrix {
+	let result: TextMatrix = [];
+	for (let c = 0; c < textMatrix[0].length; c++) {
+		const line: string[] = [];
+		for (let i = 0; i < textMatrix.length; i++) {
+			line.push(textMatrix[i][c]);
+		}
+		result.push(line);
+	}
+	return result;
+}
+
+export function flipCharacters(textMatrix: TextMatrix): TextMatrix {
+	let result: TextMatrix = [];
+	for (let r = 0; r < textMatrix.length; r++) {
+		result.push(textMatrix[r].reverse());
+	}
+	return result;
+}
+
+export function flipLines(textMatrix: TextMatrix): TextMatrix {
+	let result: TextMatrix = Array.from(textMatrix);
+	for (let r = 0; r < result.length / 2; r++) {
+		const temp = result[r];
+		result[r] = result[result.length - r - 1];
+		result[result.length - r - 1] = temp;
+	}
+	return result;
+}
+
+export function rotate90(textMatrix: TextMatrix): TextMatrix {
+	return flipCharacters(transpose(textMatrix));
+}
+
+export function rotate180(textMatrix: TextMatrix): TextMatrix {
+	return flipLines(flipCharacters(textMatrix));
+}
+
+export function rotate270(textMatrix: TextMatrix): TextMatrix {
+	return flipLines(transpose(textMatrix));
+}
+
+export function toString(textMatrix: TextMatrix): string {
+	let result: string = "";
+	for (let r = 0; r < textMatrix.length; r++) {
+		for (let c = 0; c < textMatrix[r].length; c++) {
+			result += textMatrix[r][c];
+			if (c < textMatrix[r].length - 1) {
+				result += " ";
+			}
+		}
+		result += "\n";
+	}
+	return result;
+}
+
 export function activate(context: vscode.ExtensionContext) {
-	function transpose(elements: TextMatrix): TextMatrix {
-		let result: TextMatrix = [];
-		for (let c = 0; c < elements[0].length; c++) {
-			const line: string[] = [];
-			for (let i = 0; i < elements.length; i++) {
-				line.push(elements[i][c]);
-			}
-			result.push(line);
-		}
-		return result;
-	}
-
-	function flipCharacters(elements: TextMatrix): TextMatrix {
-		let result: TextMatrix = [];
-		for (let r = 0; r < elements.length; r++) {
-			result.push(elements[r].reverse());
-		}
-		return result;
-	}
-
-	function flipLines(elements: TextMatrix): TextMatrix {
-		let result: TextMatrix = Array.from(elements);
-		for (let r = 0; r < result.length / 2; r++) {
-			const temp = result[r];
-			result[r] = result[result.length - r - 1];
-			result[result.length - r - 1] = temp;
-		}
-		return result;
-	}
-
-	function rotate(elements: TextMatrix, degree: number): TextMatrix {
-		switch(degree) {
-			case 90:
-			case -270:
-				return flipCharacters(transpose(elements));
-			case 180:
-			case -180:
-				return flipLines(flipCharacters(elements));
-			case -90:
-			case 270:
-				return flipLines(transpose(elements));
-			default:
-				throw new Error("Only 90 degree values supported");
-		}
-	}
-
-	function toString(elements: TextMatrix): string {
-		let result: string = "";
-		for (let r = 0; r < elements.length; r++) {
-			for (let c = 0; c < elements[r].length; c++) {
-				result += elements[r][c];
-				if (c < elements[r].length - 1) {
-					result += " ";
-				}
-			}
-			result += "\n";
-		}
-		return result;
-	}
-
-	function elementsFromDocument(document: vscode.TextDocument): TextMatrix {
-		const elements: TextMatrix = [];
+	function textMatrixFromDocument(document: vscode.TextDocument): TextMatrix {
+		const textMatrix: TextMatrix = [];
 		let columns = 0;
 		for(let i = 0; i < document.lineCount; i++) {
 			const line = document.lineAt(i);
@@ -79,19 +75,19 @@ export function activate(context: vscode.ExtensionContext) {
 					vscode.window.showErrorMessage(`Text not in rectangular form: Line ${i + 1} has ${tokens.length} elements, while lines before had ${columns} elements.`);
 					throw new Error("Text not in rectangular form");
 				}
-				elements.push(tokens);
+				textMatrix.push(tokens);
 			}
 		}
-		return elements;
+		return textMatrix;
 	}
 
-	function doCommand(command: (elements: TextMatrix) => TextMatrix) {
+	function doCommand(command: (textMatrix: TextMatrix) => TextMatrix) {
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
 			editor.edit(editBuilder => {
 				try {
-					const elements: TextMatrix = elementsFromDocument(editor.document);
-					let result = command(elements);
+					const textMatrix: TextMatrix = textMatrixFromDocument(editor.document);
+					let result = command(textMatrix);
 					
 					editBuilder.replace(new vscode.Range(
 						new vscode.Position(0, 0),
@@ -105,22 +101,22 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 
 	context.subscriptions.push(vscode.commands.registerCommand('textmatrix.transpose', () => {
-		doCommand(elements => transpose(elements));
+		doCommand(transpose);
 	}));
 	context.subscriptions.push(vscode.commands.registerCommand('textmatrix.flipCharacters', () => {
-		doCommand(elements => flipCharacters(elements));
+		doCommand(flipCharacters);
 	}));
 	context.subscriptions.push(vscode.commands.registerCommand('textmatrix.flipLines', () => {
-		doCommand(elements => flipLines(elements));
+		doCommand(flipLines);
 	}));
 	context.subscriptions.push(vscode.commands.registerCommand('textmatrix.rotate90', () => {
-		doCommand(elements => rotate(elements, 90));
+		doCommand(rotate90);
 	}));
 	context.subscriptions.push(vscode.commands.registerCommand('textmatrix.rotate180', () => {
-		doCommand(elements => rotate(elements, 180));
+		doCommand(rotate180);
 	}));
 	context.subscriptions.push(vscode.commands.registerCommand('textmatrix.rotate270', () => {
-		doCommand(elements => rotate(elements, 270));
+		doCommand(rotate270);
 	}));
 }
 
