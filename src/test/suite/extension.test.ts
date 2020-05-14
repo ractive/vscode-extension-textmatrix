@@ -194,6 +194,9 @@ suite('Extension Test Suite', () => {
 	});
 
 	test('e2e test', async () => {
+		if (!vscode.window.activeTextEditor) {
+			await vscode.commands.executeCommand("workbench.action.files.newUntitledFile");
+		}
 		const result = await vscode.window.activeTextEditor?.edit(editBuilder => {
 			editBuilder.insert(new vscode.Position(0, 0), " 1 2  3\n4 5  6 ");
 		})
