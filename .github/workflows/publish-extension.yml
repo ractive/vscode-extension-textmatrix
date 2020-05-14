@@ -2,6 +2,7 @@ on: [push]
 
 jobs:
   build:
+    continue-on-error: false
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
@@ -20,6 +21,7 @@ jobs:
           run: npm test
 
   deploy:
+    if: ${{ success() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
