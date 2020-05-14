@@ -69,7 +69,10 @@ export function activate(context: vscode.ExtensionContext) {
 		for(let i = 0; i < document.lineCount; i++) {
 			const line = document.lineAt(i);
 			if (!line.isEmptyOrWhitespace) {
-				const tokens: string[] = line.text.substr(line.firstNonWhitespaceCharacterIndex).split(/\s+/);
+				const tokens: string[] = line.text
+					.substr(line.firstNonWhitespaceCharacterIndex)
+					.trim()
+					.split(/\s+/);
 				if (columns === 0) {
 					columns = tokens.length;
 				} else if (columns !== tokens.length) {
