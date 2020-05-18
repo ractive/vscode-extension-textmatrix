@@ -29,29 +29,87 @@
 		"commands": [
 			{
 				"command": "textmatrix.transpose",
-                "title": "Transpose text"
+				"title": "Transpose text",
+				"category": "Textmatrix",
+				"icon": {
+					"light": "icons/transpose-light.svg",
+					"dark": "icons/transpose-dark.svg"
+				}
 			},
 			{
 				"command": "textmatrix.flipCharacters",
-                "title": "Flip the characters on every line of the text"
+				"title": "Flip the characters on every line of the text",
+				"category": "Textmatrix",
+				"icon": {
+					"light": "icons/flip-characters-light.svg",
+					"dark": "icons/flip-characters-dark.svg"
+				}
 			},
 			{
 				"command": "textmatrix.flipLines",
-                "title": "Flip the lines of the text"
+				"title": "Flip the lines of the text",
+				"category": "Textmatrix",
+				"icon": {
+					"light": "icons/flip-lines-light.svg",
+					"dark": "icons/flip-lines-dark.svg"
+				}
 			},
 			{
 				"command": "textmatrix.rotate90",
-                "title": "Rotate text by 90 degrees"
+				"title": "Rotate text by 90 degrees",
+				"category": "Textmatrix",
+				"icon": {
+					"light": "icons/rotate90-light.svg",
+					"dark": "icons/rotate90-dark.svg"
+				}
 			},
 			{
 				"command": "textmatrix.rotate180",
-                "title": "Rotate text by 180 degrees"
+				"title": "Rotate text by 180 degrees",
+				"category": "Textmatrix",
+				"icon": {
+					"light": "icons/rotate180-light.svg",
+					"dark": "icons/rotate180-dark.svg"
+				}
 			},
 			{
 				"command": "textmatrix.rotate270",
-                "title": "Rotate text by 270 degrees"
+				"title": "Rotate text by 270 degrees",
+				"category": "Textmatrix",
+				"icon": {
+					"light": "icons/rotate270-light.svg",
+					"dark": "icons/rotate270-dark.svg"
+				}
 			}
-		]
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "textmatrix.transpose",
+					"group": "2_textmatrix@1"
+				},
+				{
+					"command": "textmatrix.flipCharacters",
+					"group": "2_textmatrix@2"
+				},
+				{
+					"command": "textmatrix.flipLines",
+					"group": "2_textmatrix@3"
+				},
+				{
+					"command": "textmatrix.rotate90",
+					"group": "2_textmatrix@4"
+				},
+				{
+					"command": "textmatrix.rotate180",
+					"group": "2_textmatrix@5"
+				},
+				{
+					"command": "textmatrix.rotate270",
+					"group": "2_textmatrix@6"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
