@@ -4,12 +4,14 @@ type TextMatrix = string[][];
 
 export function transpose(textMatrix: TextMatrix): TextMatrix {
 	let result: TextMatrix = [];
-	for (let c = 0; c < textMatrix[0].length; c++) {
-		const line: string[] = [];
-		for (let i = 0; i < textMatrix.length; i++) {
-			line.push(textMatrix[i][c]);
+	if (textMatrix && textMatrix.length > 0) {
+		for (let c = 0; c < textMatrix[0].length; c++) {
+			const line: string[] = [];
+			for (let i = 0; i < textMatrix.length; i++) {
+				line.push(textMatrix[i][c]);
+			}
+			result.push(line);
 		}
-		result.push(line);
 	}
 	return result;
 }
