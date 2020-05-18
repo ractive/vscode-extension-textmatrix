@@ -32,8 +32,8 @@
 				"title": "Transpose text",
 				"category": "Textmatrix",
 				"icon": {
-					"light": "icons/transpose-light.svg",
-					"dark": "icons/transpose-dark.svg"
+					"light": "icons/transpose-light.png",
+					"dark": "icicons/transpose-dark.png"
 				}
 			},
 			{
@@ -41,8 +41,8 @@
 				"title": "Flip the characters on every line of the text",
 				"category": "Textmatrix",
 				"icon": {
-					"light": "icons/flip-characters-light.svg",
-					"dark": "icons/flip-characters-dark.svg"
+					"light": "icons/flip-characters-light.png",
+					"dark": "icons/flip-characters-dark.png"
 				}
 			},
 			{
@@ -50,8 +50,8 @@
 				"title": "Flip the lines of the text",
 				"category": "Textmatrix",
 				"icon": {
-					"light": "icons/flip-lines-light.svg",
-					"dark": "icons/flip-lines-dark.svg"
+					"light": "icons/flip-lines-light.png",
+					"dark": "icons/flip-lines-dark.png"
 				}
 			},
 			{
@@ -59,8 +59,8 @@
 				"title": "Rotate text by 90 degrees",
 				"category": "Textmatrix",
 				"icon": {
-					"light": "icons/rotate90-light.svg",
-					"dark": "icons/rotate90-dark.svg"
+					"light": "icons/rotate90-light.png",
+					"dark": "icons/rotate90-dark.png"
 				}
 			},
 			{
@@ -68,8 +68,8 @@
 				"title": "Rotate text by 180 degrees",
 				"category": "Textmatrix",
 				"icon": {
-					"light": "icons/rotate180-light.svg",
-					"dark": "icons/rotate180-dark.svg"
+					"light": "icons/rotate180-light.png",
+					"dark": "icons/rotate180-dark.png"
 				}
 			},
 			{
@@ -77,8 +77,8 @@
 				"title": "Rotate text by 270 degrees",
 				"category": "Textmatrix",
 				"icon": {
-					"light": "icons/rotate270-light.svg",
-					"dark": "icons/rotate270-dark.svg"
+					"light": "icons/rotate270-light.png",
+					"dark": "icons/rotate270-dark.png"
 				}
 			}
 		],
