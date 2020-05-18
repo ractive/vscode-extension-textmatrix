@@ -6,7 +6,7 @@ https://marketplace.visualstudio.com/items?itemName=ractive.textmatrix
 
 ![textedit extension in action](textmatrix-vscode-extension.gif)
 
-To apply an operation, open the command palette in vscode (`F1` or `ctrl-shift-p`) and search for one of the commands described below.
+To apply an operation, open the command palette in vscode (`F1` or `ctrl-shift-p`) and search for one of the commands described below (or search for `textmatrix` to find all commands). The commands are also availble in the context menu of the editor that is accessible by right clicking in the editor.
 
 Be aware that the text in the currently active editor window (representing a matrix), is replaced with the result of the matrix operation.
 
