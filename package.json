@@ -3,7 +3,7 @@
 	"displayName": "Simple matrix operations on text",
 	"description": "Manipulate matrices that are represented as text (transpose, rotate. etc.)",
 	"publisher": "ractive",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"license": "WTFPL",
 	"icon": "icon.png",
 	"repository": {
