@@ -64,7 +64,7 @@ becomes:
 ```
 
 ## Rotate text by 90 degrees
-Rotates the matix by 90 degrees:
+Rotates the matrix by 90 degrees:
 ```
 1 2 3
 4 5 6
@@ -77,7 +77,7 @@ becomes:
 ```
 
 ## Rotate text by 180 degrees
-Rotates the matix by 180 degrees:
+Rotates the matrix by 180 degrees:
 ```
 1 2 3
 4 5 6
@@ -89,7 +89,7 @@ becomes:
 ```
 
 ## Rotate text by 270 degrees
-Rotates the matix by 270 degrees:
+Rotates the matrix by 270 degrees:
 ```
 1 2 3
 4 5 6
