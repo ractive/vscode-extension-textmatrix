@@ -28,15 +28,14 @@
 
 ## Run tests
 
-* Open the debug viewlet (`Ctrl+Shift+D` or `Cmd+Shift+D` on Mac) and from the launch configuration dropdown pick `Extension Tests`.
-* Press `F5` to run the tests in a new window with your extension loaded.
-* See the output of the test result in the debug console.
+* Run `npm test` from the terminal to compile and run the tests in a downloaded VS Code instance (this uses [`@vscode/test-cli`](https://github.com/microsoft/vscode-test-cli) and the `.vscode-test.mjs` config).
+* Alternatively, install the [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner) extension and run/debug the tests from the Testing view.
 * Make changes to `src/test/suite/extension.test.ts` or create new test files inside the `test/suite` folder.
-  * The provided test runner will only consider files matching the name pattern `**.test.ts`.
+  * The test runner only considers compiled files matching the pattern `out/test/**/*.test.js`.
   * You can create folders inside the `test` folder to structure your tests any way you want.
 
 ## Go further
 
- * Reduce the extension size and improve the startup time by [bundling your extension](https://code.visualstudio.com/api/working-with-extensions/bundling-extension).
+ * The extension is already bundled with [esbuild](https://esbuild.github.io) (see `esbuild.js`) to reduce its size and improve startup time.
  * [Publish your extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) on the VSCode extension marketplace.
  * Automate builds by setting up [Continuous Integration](https://code.visualstudio.com/api/working-with-extensions/continuous-integration).

@@ -1,4 +1,4 @@
-import * as assert from 'assert';
+import * as assert from 'node:assert';
 
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
@@ -181,10 +181,10 @@ suite('Extension Test Suite', () => {
 		);
 	});
 
-	test('toString', () => {
+	test('matrixToString', () => {
 		assert.equal(
 			"1 2 3\n4 5 6\n",
-			textmatrix.toString(
+			textmatrix.matrixToString(
 				[
 					["1", "2", "3"],
 					["4", "5", "6"],
@@ -203,11 +203,11 @@ suite('Extension Test Suite', () => {
 		})
 		.then(
 			() => vscode.commands.executeCommand("textmatrix.transpose"),
-			(reason) => assert.fail("Error executing extension: " + reason)
+			(reason) => assert.fail(`Error executing extension: ${reason}`)
 		)
 		.then(
 			() => vscode.window.activeTextEditor?.document.getText(),
-			(reason) => assert.fail("Error: " + reason)
+			(reason) => assert.fail(`Error: ${reason}`)
 		);
 
 		assert.equal(result, "1 4\n2 5\n3 6\n");

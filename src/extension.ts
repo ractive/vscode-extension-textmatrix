@@ -3,7 +3,7 @@ import * as vscode from 'vscode';
 type TextMatrix = string[][];
 
 export function transpose(textMatrix: TextMatrix): TextMatrix {
-	let result: TextMatrix = [];
+	const result: TextMatrix = [];
 	if (textMatrix && textMatrix.length > 0) {
 		for (let c = 0; c < textMatrix[0].length; c++) {
 			const line: string[] = [];
@@ -17,7 +17,7 @@ export function transpose(textMatrix: TextMatrix): TextMatrix {
 }
 
 export function flipCharacters(textMatrix: TextMatrix): TextMatrix {
-	let result: TextMatrix = [];
+	const result: TextMatrix = [];
 	for (let r = 0; r < textMatrix.length; r++) {
 		result.push(textMatrix[r].reverse());
 	}
@@ -25,7 +25,7 @@ export function flipCharacters(textMatrix: TextMatrix): TextMatrix {
 }
 
 export function flipLines(textMatrix: TextMatrix): TextMatrix {
-	let result: TextMatrix = Array.from(textMatrix);
+	const result: TextMatrix = Array.from(textMatrix);
 	for (let r = 0; r < result.length / 2; r++) {
 		const temp = result[r];
 		result[r] = result[result.length - r - 1];
@@ -46,7 +46,7 @@ export function rotate270(textMatrix: TextMatrix): TextMatrix {
 	return flipLines(transpose(textMatrix));
 }
 
-export function toString(textMatrix: TextMatrix): string {
+export function matrixToString(textMatrix: TextMatrix): string {
 	let result: string = "";
 	for (let r = 0; r < textMatrix.length; r++) {
 		for (let c = 0; c < textMatrix[r].length; c++) {
@@ -68,7 +68,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const line = document.lineAt(i);
 			if (!line.isEmptyOrWhitespace) {
 				const tokens: string[] = line.text
-					.substr(line.firstNonWhitespaceCharacterIndex)
+					.substring(line.firstNonWhitespaceCharacterIndex)
 					.trim()
 					.split(/\s+/);
 				if (columns === 0) {
@@ -89,11 +89,11 @@ export function activate(context: vscode.ExtensionContext) {
 			editor.edit(editBuilder => {
 				try {
 					const textMatrix: TextMatrix = textMatrixFromDocument(editor.document);
-					let result = command(textMatrix);
+					const result = command(textMatrix);
 					
 					editBuilder.replace(new vscode.Range(
 						new vscode.Position(0, 0),
-						new vscode.Position(Number.MAX_VALUE, Number.MAX_VALUE)), toString(result)
+						new vscode.Position(Number.MAX_VALUE, Number.MAX_VALUE)), matrixToString(result)
 					);
 				} catch (e) {
 					console.log("Error ", e);
