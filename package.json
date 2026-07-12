@@ -4,7 +4,7 @@
 	"description": "Manipulate matrices that are represented as text (transpose, rotate. etc.)",
 	"publisher": "ractive",
 	"version": "0.2.4",
-	"license": "WTFPL",
+	"license": "MIT",
 	"icon": "icon.png",
 	"repository": {
 		"type": "git",
